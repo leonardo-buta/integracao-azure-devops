@@ -1,0 +1,70 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<div class="container-fluid">
+        <div class="page">
+          <div class="title">
+            <h1>
+              Work Items
+            </h1>
+          </div>
+      
+          <div class="content">
+            <form [formGroup]="filterForm">
+              <div class="row">
+                <div class="form-group col-md-2">
+                    <select class="form-control" id="selecioneSituacao" formControlName="ctrlWorkItemTipo" placeholder="'TIPOS'">
+                        <option value="" disabled selected hidden>Todos Tipos</option>
+                        <option value="Task">Task</option>
+                        <option value="Issue">Issue</option>
+                        <option value="Epic">Epic</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-5">
+                    <input type="text" class="form-control" formControlName="ctrlWorkItemTitulo" [placeholder]="'Titulo'" />
+                </div>
+                <div class="form-group col-md-2">
+                        <select class="form-control" formControlName="ctrlWorkItemOrder" placeholder="'ORDER'">
+                            <option value disabled selected hidden>Order</option>
+                            <option selected value="DESC">DATA DESC</option>
+                            <option value="ASC">DATA ASC</option>
+                        </select>
+                    </div>                
+                <div class="col-offset col-md-12">
+                        <button id="btBuscar" class="btn btn-primary" (click)="filter(1)">Filtrar</button>
+                </div>
+              </div>
+            </form>
+            <br />
+            <table class="table table-bordered col-md-12">
+              <thead class="thead-light">
+                <tr>
+                  <th>ID</th>
+                  <th>Título</th>
+                  <th>Tipo</th>
+                  <th>Data de Criação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let workitem of workItems; let i = index">
+                  <td>{{ workitem.workItemId }}</td>
+                  <td>{{ workitem.titulo }}</td>
+                  <td>{{ workitem.tipoString }}</td>
+                  <td>{{ workitem.dataCriacao | date: 'dd/MM/yyyy HH:mm'}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            <div class="row">
+              <div class="col-md-6">
+                <ngb-pagination
+                  [collectionSize]="30"
+                  [pageSize]="30"
+                  [(page)]="page"
+                  [maxSize]="10"
+                  [boundaryLinks]="true"
+                  (pageChange)="filter(page)"
+                ></ngb-pagination>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      

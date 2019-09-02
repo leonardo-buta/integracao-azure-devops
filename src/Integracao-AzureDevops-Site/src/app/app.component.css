@@ -1,0 +1,53 @@
+  .navbar i {
+    padding-right: 4px;
+  }
+  .nav-link.dropdown-toggle {
+    cursor: pointer;
+  }
+
+  body {
+    color: gray-800;
+    background-color: gray-100;
+  }
+    .toast-success {
+      background-color: green;
+    }
+  
+    .page {
+      padding: 25px 50px;
+    }
+      .title {
+        margin-bottom: 20px;
+      }
+        h1, a, btn {
+          
+            
+              float: right;
+            }
+          
+        
+      
+  
+      .content table th {
+            white-space: nowrap;
+          }
+          td {
+            vertical-align: middle;
+            white-space: nowrap;
+          }
+            img {
+              height: 30px;
+            }
+            .btn {
+              padding: 0 0.25rem;
+            }
+  
+         form {
+          padding: 1.25rem;
+          border: 1px solid gray-400;
+          background-color: white;
+          border-radius: 0.25rem;
+  
+          
+        
+      }
